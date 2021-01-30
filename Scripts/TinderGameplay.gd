@@ -14,14 +14,14 @@ signal legs_texture_chagned(texture)
 const DATA := {
 	"head" : 
 	[ 
-		preload("Textures/head1.png")
+		preload("res://Textures/head1.png")
 		],
 	"torso" : 
 	[
-		preload("Textures/body1.png")
+		preload("res://Textures/body1.png")
 		],
 	"legs" : [
-		preload("Textures/tail.png")]
+		preload("res://Textures/tail.png")]
 }
 
 # Declare member variables here. Examples:
