@@ -5,7 +5,7 @@
 [ext_resource path="res://Textures/lost.png" type="Texture" id=3]
 [ext_resource path="res://Textures/found.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/MonsterCreator.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/TinderGameplay.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/TinderGameplay.gd" type="Script" id=6]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
