@@ -50,4 +50,11 @@ func _on_SwipeDetector_tinder_swiped(is_left):
 		$AnimationPlayer.play("left_swipe")
 	else:
 		$AnimationPlayer.play("right_swipe")
-	pass # Replace with function body.
+
+
+func _on_LostButton_pressed():
+	$AnimationPlayer.play("left_swipe")
+
+
+func _on_FoundButton_pressed():
+	$AnimationPlayer.play("right_swipe")
