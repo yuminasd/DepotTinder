@@ -47,7 +47,7 @@ func _on_MonsterCreator_color_changed(color: Color, key:String) -> void:
 
 func _on_SwipeDetector_tinder_swiped(is_left):
 	if is_left:
-		print("Left")
+		$AnimationPlayer.play("left_swipe")
 	else:
-		print("Right")
+		$AnimationPlayer.play("right_swipe")
 	pass # Replace with function body.
