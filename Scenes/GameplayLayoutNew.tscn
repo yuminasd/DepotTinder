@@ -34,7 +34,6 @@ __meta__ = {
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Monster" parent="CanvasLayer" instance=ExtResource( 5 )]
-position = Vector2( -0.793701, -0.793701 )
 scale = Vector2( 8, 8 )
 
 [node name="TextureButton" type="TextureButton" parent="."]
