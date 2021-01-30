@@ -8,14 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "MonsterCreator",
+"language": "GDScript",
+"path": "res://Scripts/MonsterCreator.gd"
+} ]
 _global_script_class_icons={
-
+"MonsterCreator": ""
 }
 
 [application]
 
 config/name="DepotTInder"
+run/main_scene="res://Scenes/GameplayLayoutNew.tscn"
 config/icon="res://icon.png"
 
 [display]

@@ -1,15 +1,6 @@
-extends Node
+extends Control
 
-#color changing signals
-signal head_color_changed(color)
-signal torso_color_changed(color)
-signal legs_color_changted(color)
-
-#texture changing signals
-signal head_texture_changed(texture)
-signal torso_texture_changed(texture)
-signal legs_texture_chagned(texture)
-
+onready var monster = $MonsterLayer/Monster
 
 const DATA := {
 	"head" : 
@@ -24,9 +15,11 @@ const DATA := {
 		preload("res://Textures/tail.png")]
 }
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+const COLORS := {
+	"red" : Color(1.0, 0.0, 1.0),
+	"green" : Color(0.0, 1.0, 0.0),
+	"blue" : Color(0.0, 0.0, 1.0)
+}
 
 
 # Called when the node enters the scene tree for the first time.
@@ -38,8 +31,17 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func _on_MonsterCreator_texture_changed(texture: StreamTexture, key:String) -> void:
-	emit_signal(key + "_changed", texture)
+	
+func generate_new_monster() -> void:
+	var colorKey = COLORS.keys()[randi() % COLORS.keys().size()]
+	var color = COLORS[colorKey]
+	monster.change_head_color(color)
+	monster.change_torso_color(color)
+	monster.change_legs_color(color)
 
-func _on_MonsterCreator_color_changed(color: Color, key:String) -> void:
-	emit_signal(key + "_changed", color); 
+func _on_LostButton_pressed():
+	generate_new_monster()
+
+
+func _on_FoundButton_pressed():
+	generate_new_monster()

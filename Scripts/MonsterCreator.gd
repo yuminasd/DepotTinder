@@ -1,3 +1,4 @@
+class_name MonsterCreator
 extends KinematicBody2D
 
 
@@ -24,22 +25,24 @@ func _ready():
 
 
 #methods to change color of head, torso, legs
-func _on_MonsterCreator_head_color_changed(color) -> void:
+func change_head_color(color) -> void:
 	head.modulate = color
 
-func _on_MonsterCreator_torso_color_changed(color) -> void:
+func change_torso_color(color) -> void:
 	torso.modulate = color
 
-func _on_MonsterCreator_legs_color_changed(color) -> void: 
+func change_legs_color(color) -> void: 
 	legs.modulate = color 
 
 
 #methods to change texture of head, torso, legs
-func _on_MonsterCreator_head_texture_changed(texture) -> void: 
+func _on_head_texture_changed(texture) -> void: 
 	head.texture = texture
 
-func _on_MonsterCreator_torso_texture_changed(texture) -> void: 
+func _on_torso_texture_changed(texture) -> void: 
 	head.texture = texture
 
-func _on_MonsterCreator_legs_texture_changed(texture) -> void: 
+func _on_legs_texture_changed(texture) -> void: 
 	head.texture = texture
+
+
