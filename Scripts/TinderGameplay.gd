@@ -72,7 +72,6 @@ func _on_LostButton_pressed():
 	proccess_swipe()
 	generate_new_monster()
 
-
 func _on_FoundButton_pressed():
 	proccess_swipe()
 	generate_new_monster()

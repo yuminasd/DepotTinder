@@ -1,5 +1,5 @@
 class_name MonsterCreator
-extends KinematicBody2D
+extends Node2D
 
 
 onready var body := $Body
