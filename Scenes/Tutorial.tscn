@@ -97,7 +97,7 @@ margin_left = 14.3658
 margin_right = 304.366
 margin_bottom = 21.0
 custom_fonts/font = ExtResource( 7 )
-text = "The hearts indicate how many lives you have left"
+text = "These are your lives"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -115,12 +115,11 @@ __meta__ = {
 }
 
 [node name="ColorBarInfo" type="Label" parent="UI_Layer/Step2"]
-margin_left = 1.0
-margin_right = 295.0
+margin_right = 294.0
 margin_bottom = 37.0
 custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0.0117647, 0, 0, 1 )
-text = "This color (in this case red) indicates color of monsters that are found"
+text = "This bar is the \"found\" color"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -128,18 +127,18 @@ __meta__ = {
 
 [node name="Step3" type="ColorRect" parent="UI_Layer"]
 visible = false
-margin_left = 124.179
-margin_top = 851.333
-margin_right = 419.179
-margin_bottom = 911.333
+margin_left = 77.0
+margin_top = 851.0
+margin_right = 607.0
+margin_bottom = 911.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LosingLivesInfo" type="Label" parent="UI_Layer/Step3"]
-margin_left = 6.47876
+margin_left = 6.0
 margin_top = 3.0
-margin_right = 288.479
+margin_right = 537.0
 margin_bottom = 60.0
 custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0.0901961, 0.00392157, 0.00392157, 1 )
@@ -151,10 +150,10 @@ __meta__ = {
 
 [node name="Step4" type="ColorRect" parent="UI_Layer"]
 visible = false
-margin_left = 310.693
-margin_top = 945.46
-margin_right = 582.693
-margin_bottom = 966.46
+margin_left = 311.0
+margin_top = 937.0
+margin_right = 688.0
+margin_bottom = 966.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -174,10 +173,10 @@ __meta__ = {
 
 [node name="Step5" type="ColorRect" parent="UI_Layer"]
 visible = false
-margin_left = 111.152
-margin_top = 1010.22
-margin_right = 268.152
-margin_bottom = 1075.22
+margin_left = 77.0
+margin_top = 1010.0
+margin_right = 329.0
+margin_bottom = 1082.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -185,10 +184,9 @@ __meta__ = {
 [node name="LostInfo" type="Label" parent="UI_Layer/Step5"]
 anchor_left = 0.00345492
 anchor_right = 0.00345492
-margin_left = 0.454162
-margin_top = -1.00549
-margin_right = 154.454
-margin_bottom = 30.9945
+margin_left = -0.659889
+margin_right = 233.34
+margin_bottom = 72.0
 theme = SubResource( 1 )
 custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -200,10 +198,10 @@ __meta__ = {
 
 [node name="Step6" type="ColorRect" parent="UI_Layer"]
 visible = false
-margin_left = 352.689
-margin_top = 1029.3
-margin_right = 544.689
-margin_bottom = 1063.3
+margin_left = 353.0
+margin_top = 1029.0
+margin_right = 637.0
+margin_bottom = 1075.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -213,8 +211,8 @@ anchor_top = 0.0131579
 anchor_bottom = 0.0131579
 margin_left = 2.0
 margin_top = -1.44737
-margin_right = 194.0
-margin_bottom = 35.5526
+margin_right = 305.0
+margin_bottom = 45.5526
 custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "If the monster shown matches the color swipe right or press found"

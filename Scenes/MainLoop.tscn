@@ -116,7 +116,7 @@ __meta__ = {
 position = Vector2( 263.932, 556.822 )
 
 [node name="TimeLeft" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 60.0
 one_shot = true
 [connection signal="tinder_swiped" from="SwipeDetector" to="." method="_on_SwipeDetector_tinder_swiped"]
 [connection signal="pressed" from="UI/Found" to="." method="_on_FoundButton_pressed"]
