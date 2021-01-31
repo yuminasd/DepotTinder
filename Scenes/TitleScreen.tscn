@@ -36,13 +36,11 @@ texture = ExtResource( 2 )
 [node name="Eye" type="AnimatedSprite" parent="."]
 position = Vector2( 364.336, 643.722 )
 frames = SubResource( 1 )
-frame = 2
 playing = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 364.999, 641.059 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="learn" type="TextureButton" parent="."]
