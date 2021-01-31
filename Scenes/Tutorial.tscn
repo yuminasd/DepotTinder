@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Textures/UI/frame.png" type="Texture" id=1]
 [ext_resource path="res://Textures/UI/lost.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Scenes/MonsterCreator.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Textures/Tutorial/next2.png" type="Texture" id=10]
 [ext_resource path="res://Textures/Tutorial/next.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Music/tutorial.wav" type="AudioStream" id=12]
 
 [sub_resource type="Theme" id=1]
 
@@ -228,4 +229,8 @@ margin_right = 471.463
 margin_bottom = 1250.15
 texture_normal = ExtResource( 11 )
 texture_pressed = ExtResource( 10 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+autoplay = true
 [connection signal="pressed" from="UI_Layer/NextButton" to="." method="_on_NextButton_pressed"]
