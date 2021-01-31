@@ -10,10 +10,12 @@
 [ext_resource path="res://Scripts/MainLoop.gd" type="Script" id=8]
 
 [sub_resource type="AtlasTexture" id=1]
+flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 0, 10, 70, 10 )
 
 [sub_resource type="AtlasTexture" id=2]
+flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 80, 10, 10, 10 )
 
