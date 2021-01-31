@@ -20,8 +20,7 @@ script = ExtResource( 8 )
 
 [node name="Monster" parent="UI_Layer" instance=ExtResource( 9 )]
 visible = false
-position = Vector2( 158.234, 260.107 )
-scale = Vector2( 8, 8 )
+position = Vector2( 328.539, 569.564 )
 z_index = 1
 
 [node name="frame" type="Sprite" parent="UI_Layer"]

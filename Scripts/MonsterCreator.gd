@@ -2,35 +2,31 @@ class_name MonsterCreator
 extends Node2D
 
 
-onready var body := $Body
-
-onready var head := $Body/Head
-onready var torso := $Body/Torso
-onready var legs := $Body/Legs
-
 
 func _ready():
 	pass
 
-#methods to change color of head, torso, legs
-func change_head_color(color) -> void:
-	head.modulate = color
 
-func change_torso_color(color) -> void:
-	torso.modulate = color
+func change_color(color) -> void:
+	$Body/Body.modulate = color
+	$Body/Leg.modulate = color
+	$Body/Head.modulate = color
 
-func change_legs_color(color) -> void: 
-	legs.modulate = color 
+
 
 
 #methods to change texture of head, torso, legs
-func _on_head_texture_changed(texture) -> void: 
-	head.texture = texture
+func change_head_texture(texture) -> void: 
+	$Body/Head.texture = texture
+	
+func change_body_texture(texture) -> void:
+	$Body/Body.texture = texture
 
-func _on_torso_texture_changed(texture) -> void: 
-	head.texture = texture
-
-func _on_legs_texture_changed(texture) -> void: 
-	head.texture = texture
+func change_legs_texture(texture) -> void: 
+	$Body/Leg.texture = texture
+	
+func change_constant_texture(texture) -> void:
+	$Body/Constant.texture = texture
+	
 
 
