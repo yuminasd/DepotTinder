@@ -54,7 +54,7 @@ __meta__ = {
 [node name="Eye" type="AnimatedSprite" parent="UI/main"]
 position = Vector2( 315, 630 )
 frames = SubResource( 1 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="UI/main"]

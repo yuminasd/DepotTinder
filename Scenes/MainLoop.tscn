@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Textures/UI/frame.png" type="Texture" id=1]
 [ext_resource path="res://Textures/UI/lost.png" type="Texture" id=2]
@@ -9,9 +9,6 @@
 [ext_resource path="res://Scenes/SwipeDetector.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scripts/MainLoop.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/MonsterCreator.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Assets/Music/down.wav" type="AudioStream" id=10]
-[ext_resource path="res://Assets/Music/Up.wav" type="AudioStream" id=11]
-[ext_resource path="res://Assets/Music/theme.wav" type="AudioStream" id=12]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -121,19 +118,6 @@ position = Vector2( 263.932, 556.822 )
 [node name="TimeLeft" type="Timer" parent="."]
 wait_time = 60.0
 one_shot = true
-
-[node name="Background" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 12 )
-autoplay = true
-
-[node name="Point" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 11 )
-pitch_scale = 3.17
-attenuation = 0.133972
-
-[node name="Loss" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 10 )
-pitch_scale = 2.23
 [connection signal="tinder_swiped" from="SwipeDetector" to="." method="_on_SwipeDetector_tinder_swiped"]
 [connection signal="pressed" from="UI/Found" to="." method="_on_FoundButton_pressed"]
 [connection signal="pressed" from="UI/Lost" to="." method="_on_LostButton_pressed"]
