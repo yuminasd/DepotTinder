@@ -11,7 +11,6 @@
 [ext_resource path="res://Textures/Title/eye3.png" type="Texture" id=9]
 [ext_resource path="res://Textures/Title/play.png" type="Texture" id=10]
 
-
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 8 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 7 ) ],
@@ -28,29 +27,31 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Node" type="Node"]
+[node name="TitleScreen" type="Node"]
 
-[node name="main" type="Sprite" parent="."]
-position = Vector2( 364.803, 639.818 )
+[node name="main" type="TextureRect" parent="."]
 texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Eye" type="AnimatedSprite" parent="."]
-position = Vector2( 364.336, 643.722 )
+position = Vector2( 315, 630 )
 frames = SubResource( 1 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 364.999, 641.059 )
+position = Vector2( 315, 630 )
 frames = SubResource( 2 )
 frame = 1
 playing = true
 
 [node name="learn" type="TextureButton" parent="."]
-margin_left = 300.897
-margin_top = 1047.45
-margin_right = 480.897
-margin_bottom = 1097.45
+margin_left = 250.0
+margin_top = 1040.0
+margin_right = 430.0
+margin_bottom = 1090.0
 texture_normal = ExtResource( 10 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -58,10 +59,10 @@ __meta__ = {
 }
 
 [node name="play" type="TextureButton" parent="."]
-margin_left = 310.313
-margin_top = 990.182
-margin_right = 490.313
-margin_bottom = 1040.18
+margin_left = 270.0
+margin_top = 980.0
+margin_right = 410.0
+margin_bottom = 1030.0
 texture_normal = ExtResource( 5 )
 script = ExtResource( 6 )
 __meta__ = {
