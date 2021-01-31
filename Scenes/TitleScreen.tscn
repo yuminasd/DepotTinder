@@ -28,26 +28,40 @@ animations = [ {
 } ]
 
 [node name="TitleScreen" type="Node"]
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
 
-[node name="main" type="TextureRect" parent="."]
+[node name="UI" type="Control" parent="."]
+margin_left = 45.0
+margin_top = 10.0
+margin_right = 85.0
+margin_bottom = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="main" type="TextureRect" parent="UI"]
+margin_right = 630.0
+margin_bottom = 1260.0
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Eye" type="AnimatedSprite" parent="."]
+[node name="Eye" type="AnimatedSprite" parent="UI/main"]
 position = Vector2( 315, 630 )
 frames = SubResource( 1 )
 frame = 3
 playing = true
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="UI/main"]
 position = Vector2( 315, 630 )
 frames = SubResource( 2 )
 frame = 1
 playing = true
 
-[node name="learn" type="TextureButton" parent="."]
+[node name="learn" type="TextureButton" parent="UI"]
 margin_left = 250.0
 margin_top = 1040.0
 margin_right = 430.0
@@ -58,7 +72,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="play" type="TextureButton" parent="."]
+[node name="play" type="TextureButton" parent="UI"]
 margin_left = 270.0
 margin_top = 980.0
 margin_right = 410.0
@@ -68,5 +82,5 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="learn" to="learn" method="_on_learn_pressed"]
-[connection signal="pressed" from="play" to="play" method="_on_play_pressed"]
+[connection signal="pressed" from="UI/learn" to="UI/learn" method="_on_learn_pressed"]
+[connection signal="pressed" from="UI/play" to="UI/play" method="_on_play_pressed"]
