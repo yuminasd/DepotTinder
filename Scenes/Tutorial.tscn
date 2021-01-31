@@ -1,3 +1,234 @@
-[gd_scene format=2]
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Textures/UI/frame.png" type="Texture" id=1]
+[ext_resource path="res://Textures/UI/lost.png" type="Texture" id=2]
+[ext_resource path="res://Textures/UI/health.png" type="Texture" id=3]
+[ext_resource path="res://Textures/UI/lostPressed.png" type="Texture" id=4]
+[ext_resource path="res://Textures/UI/found.png" type="Texture" id=5]
+[ext_resource path="res://Textures/UI/foundPressed.png" type="Texture" id=6]
+[ext_resource path="res://Fonts/roberto_font.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Scripts/Tutorial.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/MonsterCreator.tscn" type="PackedScene" id=9]
+
+[sub_resource type="Theme" id=1]
 
 [node name="Node2D" type="Node2D"]
+visible = false
+script = ExtResource( 8 )
+
+[node name="UI_Layer" type="CanvasLayer" parent="."]
+
+[node name="Monster" parent="UI_Layer" instance=ExtResource( 9 )]
+visible = false
+position = Vector2( 158.234, 260.107 )
+scale = Vector2( 8, 8 )
+z_index = 1
+
+[node name="frame" type="Sprite" parent="UI_Layer"]
+position = Vector2( 363.827, 640.439 )
+scale = Vector2( 1.22677, 1.05477 )
+texture = ExtResource( 1 )
+
+[node name="health" type="Sprite" parent="UI_Layer"]
+visible = false
+position = Vector2( 142.768, 102.23 )
+texture = ExtResource( 3 )
+
+[node name="health2" type="Sprite" parent="UI_Layer"]
+visible = false
+position = Vector2( 201.947, 100.672 )
+texture = ExtResource( 3 )
+
+[node name="health3" type="Sprite" parent="UI_Layer"]
+visible = false
+position = Vector2( 261.917, 99.6663 )
+texture = ExtResource( 3 )
+
+[node name="ColourBar" type="ColorRect" parent="UI_Layer"]
+visible = false
+margin_left = 116.077
+margin_top = 161.615
+margin_right = 582.077
+margin_bottom = 179.615
+color = Color( 0.952941, 0.0431373, 0.0431373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Found" type="TextureButton" parent="UI_Layer"]
+margin_left = 335.615
+margin_top = 1068.77
+margin_right = 554.615
+margin_bottom = 1158.77
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lost" type="TextureButton" parent="UI_Layer"]
+margin_left = 149.996
+margin_top = 1067.38
+margin_right = 399.996
+margin_bottom = 1157.38
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Step1" type="ColorRect" parent="UI_Layer"]
+visible = false
+anchor_left = -8.47711e-08
+anchor_right = -8.47711e-08
+margin_left = 97.6405
+margin_top = 38.704
+margin_right = 402.641
+margin_bottom = 68.704
+rect_pivot_offset = Vector2( 135.063, 312.965 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HeartsInfo" type="Label" parent="UI_Layer/Step1"]
+modulate = Color( 0.0470588, 0.00392157, 0.00392157, 1 )
+margin_left = 14.3658
+margin_right = 304.366
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 7 )
+text = "The hearts indicate how many lives you have left"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Step2" type="ColorRect" parent="UI_Layer"]
+visible = false
+anchor_left = -0.00138889
+anchor_right = -0.00138889
+margin_left = 111.622
+margin_top = 190.538
+margin_right = 412.622
+margin_bottom = 226.538
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorBarInfo" type="Label" parent="UI_Layer/Step2"]
+margin_left = 1.0
+margin_right = 295.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.0117647, 0, 0, 1 )
+text = "This color (in this case red) indicates color of monsters that are found"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Step3" type="ColorRect" parent="UI_Layer"]
+visible = false
+margin_left = 124.179
+margin_top = 851.333
+margin_right = 419.179
+margin_bottom = 911.333
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LosingLivesInfo" type="Label" parent="UI_Layer/Step3"]
+margin_left = 6.47876
+margin_top = 3.0
+margin_right = 288.479
+margin_bottom = 60.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.0901961, 0.00392157, 0.00392157, 1 )
+text = "Swiping Lost on a monster that should be \"found\" loses you a life. You also lose a life if you swipe \"lost\" on a found monster"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Step4" type="ColorRect" parent="UI_Layer"]
+visible = false
+margin_left = 310.693
+margin_top = 945.46
+margin_right = 582.693
+margin_bottom = 966.46
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBarInfo" type="Label" parent="UI_Layer/Step4"]
+margin_left = -2.0
+margin_top = 1.0
+margin_right = 254.0
+margin_bottom = 30.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "This bar indicates how much time you have left
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Step5" type="ColorRect" parent="UI_Layer"]
+visible = false
+margin_left = 111.152
+margin_top = 1010.22
+margin_right = 268.152
+margin_bottom = 1075.22
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LostInfo" type="Label" parent="UI_Layer/Step5"]
+anchor_left = 0.00345492
+anchor_right = 0.00345492
+margin_left = 0.454162
+margin_top = -1.00549
+margin_right = 154.454
+margin_bottom = 30.9945
+theme = SubResource( 1 )
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Swipe left or tap lost on monsters that don't contain the right color"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Step6" type="ColorRect" parent="UI_Layer"]
+visible = false
+margin_left = 352.689
+margin_top = 1029.3
+margin_right = 544.689
+margin_bottom = 1063.3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FoundInfo" type="Label" parent="UI_Layer/Step6"]
+anchor_top = 0.0131579
+anchor_bottom = 0.0131579
+margin_left = 2.0
+margin_top = -1.44737
+margin_right = 194.0
+margin_bottom = 35.5526
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "If the monster shown matches the color swipe right or press found"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="Button" parent="UI_Layer"]
+margin_left = 259.231
+margin_top = 1212.76
+margin_right = 400.231
+margin_bottom = 1243.76
+text = "Next"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="UI_Layer/NextButton" to="." method="_on_NextButton_pressed"]
