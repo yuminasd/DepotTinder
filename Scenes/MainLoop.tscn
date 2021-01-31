@@ -21,7 +21,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="frame" type="TextureRect" parent="UI"]
+[node name="Frame" type="TextureRect" parent="UI"]
 margin_right = 590.0
 margin_bottom = 1210.0
 texture = ExtResource( 1 )
@@ -29,7 +29,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
+[node name="HeartsContainer" type="HBoxContainer" parent="UI"]
 margin_left = 90.0
 margin_top = 60.0
 margin_right = 248.0
@@ -38,18 +38,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="health" type="TextureRect" parent="UI/HBoxContainer"]
+[node name="health" type="TextureRect" parent="UI/HeartsContainer"]
 margin_right = 50.0
 margin_bottom = 60.0
 texture = ExtResource( 3 )
 
-[node name="health3" type="TextureRect" parent="UI/HBoxContainer"]
+[node name="health3" type="TextureRect" parent="UI/HeartsContainer"]
 margin_left = 54.0
 margin_right = 104.0
 margin_bottom = 60.0
 texture = ExtResource( 3 )
 
-[node name="health2" type="TextureRect" parent="UI/HBoxContainer"]
+[node name="health2" type="TextureRect" parent="UI/HeartsContainer"]
 margin_left = 108.0
 margin_right = 158.0
 margin_bottom = 60.0
@@ -73,6 +73,24 @@ margin_right = 270.0
 margin_bottom = 1100.0
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimerBar" type="TextureProgress" parent="UI"]
+margin_left = 260.0
+margin_top = 920.0
+margin_right = 470.0
+margin_bottom = 950.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorBar" type="TextureRect" parent="UI"]
+margin_left = 100.0
+margin_top = 150.0
+margin_right = 470.0
+margin_bottom = 170.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
