@@ -1,6 +1,6 @@
 extends Control
 
-onready var monster = $MonsterLayer/Monster
+onready var monster = $UI_layer/MonsterLayer/Monster
 
 const DATA := {
 	"head" : 
@@ -23,27 +23,43 @@ const COLORS := {
 	"purple" : Color.purple
 }
 
-var score:int = 0;
+var lives:int = 3
 var currentColorKey
 onready var correctColorKey = COLORS.keys()[randi() % COLORS.keys().size()]
+onready var timer = $UI_layer/GameTimer
+onready var progress_bar = $UI_layer/ProgressBar
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Score.text = str(score)
+	$UI_layer/Lives.text = str(lives)
+	timer.wait_time = progress_bar.value
+	timer.connect("timeout", self, "game_over")
+	timer.start()
 	generate_new_monster()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
-func proccess_found_swipe() -> void:
-	if (currentColorKey == correctColorKey) :
-		score += 1
-		$Score.text = str(score)
-		print("score is ", score)
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	progress_bar.value = timer.time_left
 	
+
+
+func proccess_swipe() -> void:
+	if (currentColorKey != correctColorKey) :
+		lives -=1
+		$UI_layer/Lives.text = str(lives)
+		#print("score is ", score)
+	if (lives <= 0) :
+		game_over()
+		
+		
+	
+func game_over() -> void : 
+	timer.stop()
+	$Popup_layer/GameOverPopup.show()
 
 func generate_new_monster() -> void:
 	currentColorKey = COLORS.keys()[randi() % COLORS.keys().size()]
@@ -53,9 +69,10 @@ func generate_new_monster() -> void:
 	monster.change_legs_color(color)
 
 func _on_LostButton_pressed():
+	proccess_swipe()
 	generate_new_monster()
 
 
 func _on_FoundButton_pressed():
-	proccess_found_swipe()
+	proccess_swipe()
 	generate_new_monster()
