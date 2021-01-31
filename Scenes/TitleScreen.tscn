@@ -1,11 +1,11 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Scenes/learn.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/learn.gd" type="Script" id=1]
 [ext_resource path="res://Textures/Title/main.png" type="Texture" id=2]
 [ext_resource path="res://Textures/Title/hand1.png" type="Texture" id=3]
 [ext_resource path="res://Textures/Title/hand2.png" type="Texture" id=4]
 [ext_resource path="res://Textures/Title/learn.png" type="Texture" id=5]
-[ext_resource path="res://Scenes/play.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/play.gd" type="Script" id=6]
 [ext_resource path="res://Textures/Title/eye2.png" type="Texture" id=7]
 [ext_resource path="res://Textures/Title/eye1.png" type="Texture" id=8]
 [ext_resource path="res://Textures/Title/eye3.png" type="Texture" id=9]
@@ -27,42 +27,58 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Node" type="Node"]
+[node name="TitleScreen" type="Node"]
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
 
-[node name="main" type="Sprite" parent="."]
-position = Vector2( 364.803, 639.818 )
+[node name="UI" type="Control" parent="."]
+margin_left = 45.0
+margin_top = 10.0
+margin_right = 85.0
+margin_bottom = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="main" type="TextureRect" parent="UI"]
+margin_right = 630.0
+margin_bottom = 1260.0
 texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Eye" type="AnimatedSprite" parent="."]
-position = Vector2( 364.336, 643.722 )
+[node name="Eye" type="AnimatedSprite" parent="UI/main"]
+position = Vector2( 315, 630 )
 frames = SubResource( 1 )
 playing = true
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 364.999, 641.059 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="UI/main"]
+position = Vector2( 315, 630 )
 frames = SubResource( 2 )
 playing = true
 
-[node name="learn" type="TextureButton" parent="."]
-margin_left = 300.897
-margin_top = 1047.45
-margin_right = 480.897
-margin_bottom = 1097.45
+[node name="learn" type="TextureButton" parent="UI"]
+margin_left = 250.0
+margin_top = 1040.0
+margin_right = 430.0
+margin_bottom = 1090.0
 texture_normal = ExtResource( 10 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="play" type="TextureButton" parent="."]
-margin_left = 310.313
-margin_top = 990.182
-margin_right = 490.313
-margin_bottom = 1040.18
+[node name="play" type="TextureButton" parent="UI"]
+margin_left = 270.0
+margin_top = 980.0
+margin_right = 410.0
+margin_bottom = 1030.0
 texture_normal = ExtResource( 5 )
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="learn" to="learn" method="_on_learn_pressed"]
-[connection signal="pressed" from="play" to="play" method="_on_play_pressed"]
+[connection signal="pressed" from="UI/learn" to="UI/learn" method="_on_learn_pressed"]
+[connection signal="pressed" from="UI/play" to="UI/play" method="_on_play_pressed"]

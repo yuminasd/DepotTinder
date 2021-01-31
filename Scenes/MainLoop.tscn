@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Textures/UI/frame.png" type="Texture" id=1]
 [ext_resource path="res://Textures/UI/lost.png" type="Texture" id=2]
@@ -6,43 +6,110 @@
 [ext_resource path="res://Textures/UI/lostPressed.png" type="Texture" id=4]
 [ext_resource path="res://Textures/UI/found.png" type="Texture" id=5]
 [ext_resource path="res://Textures/UI/foundPressed.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/SwipeDetector.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/MainLoop.gd" type="Script" id=8]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 10, 70, 10 )
 
-[node name="frame" type="Sprite" parent="."]
-position = Vector2( 353.172, 643.727 )
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 80, 10, 10, 10 )
+
+[node name="MainLoop" type="Node"]
+script = ExtResource( 8 )
+
+[node name="SwipeDetector" parent="." instance=ExtResource( 7 )]
+
+[node name="UI" type="Control" parent="."]
+margin_left = 65.0
+margin_top = 35.0
+margin_right = 105.0
+margin_bottom = 75.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Frame" type="TextureRect" parent="UI"]
+margin_right = 590.0
+margin_bottom = 1210.0
 texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="health" type="Sprite" parent="."]
-position = Vector2( 184.581, 135.066 )
+[node name="HeartsContainer" type="HBoxContainer" parent="UI"]
+margin_left = 90.0
+margin_top = 60.0
+margin_right = 248.0
+margin_bottom = 120.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="health" type="TextureRect" parent="UI/HeartsContainer"]
+margin_right = 50.0
+margin_bottom = 60.0
 texture = ExtResource( 3 )
 
-[node name="health2" type="Sprite" parent="."]
-position = Vector2( 244.03, 135.947 )
+[node name="health3" type="TextureRect" parent="UI/HeartsContainer"]
+margin_left = 54.0
+margin_right = 104.0
+margin_bottom = 60.0
 texture = ExtResource( 3 )
 
-[node name="health3" type="Sprite" parent="."]
-position = Vector2( 304.122, 137.066 )
+[node name="health2" type="TextureRect" parent="UI/HeartsContainer"]
+margin_left = 108.0
+margin_right = 158.0
+margin_bottom = 60.0
 texture = ExtResource( 3 )
 
-[node name="Found" type="TextureButton" parent="."]
-margin_left = 325.394
-margin_top = 1049.08
-margin_right = 544.394
-margin_bottom = 1139.08
+[node name="Found" type="TextureButton" parent="UI"]
+margin_left = 270.0
+margin_top = 1010.0
+margin_right = 490.0
+margin_bottom = 1100.0
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Lost" type="TextureButton" parent="."]
-margin_left = 149.005
-margin_top = 1049.08
-margin_right = 368.005
-margin_bottom = 1139.08
+[node name="Lost" type="TextureButton" parent="UI"]
+margin_left = 90.0
+margin_top = 1010.0
+margin_right = 270.0
+margin_bottom = 1100.0
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TimerBar" type="TextureProgress" parent="UI"]
+margin_left = 260.0
+margin_top = 920.0
+margin_right = 330.0
+margin_bottom = 930.0
+rect_scale = Vector2( 3, 3 )
+texture_progress = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorBar" type="TextureRect" parent="UI"]
+margin_left = 100.0
+margin_top = 150.0
+margin_right = 470.0
+margin_bottom = 170.0
+texture = SubResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeLeft" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+[connection signal="tinder_swiped" from="SwipeDetector" to="." method="_on_SwipeDetector_tinder_swiped"]
