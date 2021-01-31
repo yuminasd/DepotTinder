@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/learn.gd" type="Script" id=1]
 [ext_resource path="res://Textures/Title/main.png" type="Texture" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://Textures/Title/eye1.png" type="Texture" id=8]
 [ext_resource path="res://Textures/Title/eye3.png" type="Texture" id=9]
 [ext_resource path="res://Textures/Title/play.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Music/theme.wav" type="AudioStream" id=11]
+[ext_resource path="res://Assets/Music/buttonPress-Speakers (High Definition Audio Device) 1_2.wav" type="AudioStream" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -52,7 +54,6 @@ __meta__ = {
 [node name="Eye" type="AnimatedSprite" parent="UI/main"]
 position = Vector2( 315, 630 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="UI/main"]
@@ -71,6 +72,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ButtonPress" type="AudioStreamPlayer" parent="UI/learn"]
+stream = ExtResource( 12 )
+
 [node name="play" type="TextureButton" parent="UI"]
 margin_left = 270.0
 margin_top = 980.0
@@ -81,5 +85,13 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ButtonPress" type="AudioStreamPlayer" parent="UI/play"]
+stream = ExtResource( 12 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -4.588
+autoplay = true
 [connection signal="pressed" from="UI/learn" to="UI/learn" method="_on_learn_pressed"]
 [connection signal="pressed" from="UI/play" to="UI/play" method="_on_play_pressed"]
