@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/learn.gd" type="Script" id=1]
 [ext_resource path="res://Textures/Title/main.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Textures/Title/play.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Music/theme.wav" type="AudioStream" id=11]
 [ext_resource path="res://Assets/Music/buttonPress-Speakers (High Definition Audio Device) 1_2.wav" type="AudioStream" id=12]
+[ext_resource path="res://Textures/Title/title1.png" type="Texture" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -54,7 +55,7 @@ __meta__ = {
 [node name="Eye" type="AnimatedSprite" parent="UI/main"]
 position = Vector2( 315, 630 )
 frames = SubResource( 1 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="UI/main"]
@@ -62,6 +63,10 @@ position = Vector2( 315, 630 )
 frames = SubResource( 2 )
 frame = 1
 playing = true
+
+[node name="title1" type="Sprite" parent="UI/main"]
+position = Vector2( 316.631, 630.621 )
+texture = ExtResource( 13 )
 
 [node name="learn" type="TextureButton" parent="UI"]
 margin_left = 250.0

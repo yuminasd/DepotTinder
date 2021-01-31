@@ -109,6 +109,7 @@ script = SubResource( 1 )
 
 [node name="Again2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 19 )
+volume_db = -10.0
 
 [node name="Frame" type="TextureRect" parent="."]
 margin_left = 45.0

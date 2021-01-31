@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Textures/UI/frame.png" type="Texture" id=1]
 [ext_resource path="res://Textures/UI/lost.png" type="Texture" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://Scenes/SwipeDetector.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scripts/MainLoop.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/MonsterCreator.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Music/down.wav" type="AudioStream" id=10]
+[ext_resource path="res://Assets/Music/Up.wav" type="AudioStream" id=11]
+[ext_resource path="res://Assets/Music/theme.wav" type="AudioStream" id=12]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -22,6 +25,16 @@ region = Rect2( 80, 10, 10, 10 )
 
 [node name="MainLoop" type="Node"]
 script = ExtResource( 8 )
+
+[node name="Loss" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="Background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+autoplay = true
+
+[node name="Point" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
 
 [node name="SwipeDetector" parent="." instance=ExtResource( 7 )]
 
