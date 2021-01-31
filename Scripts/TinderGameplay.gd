@@ -1,15 +1,6 @@
-extends Node
+extends Control
 
-#color changing signals
-signal head_color_changed(color)
-signal torso_color_changed(color)
-signal legs_color_changted(color)
-
-#texture changing signals
-signal head_texture_changed(texture)
-signal torso_texture_changed(texture)
-signal legs_texture_chagned(texture)
-
+onready var monster = $UI_layer/MonsterLayer/Monster
 
 const DATA := {
 	"head" : 
@@ -24,37 +15,63 @@ const DATA := {
 		preload("res://Textures/tail.png")]
 }
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+const COLORS := {
+	"red" : Color.red,
+	"green" : Color.green,
+	"blue" : Color.blue,
+	"orange" : Color.orange,
+	"purple" : Color.purple
+}
+
+var lives:int = 3
+var currentColorKey
+onready var correctColorKey = COLORS.keys()[randi() % COLORS.keys().size()]
+onready var timer = $UI_layer/GameTimer
+onready var progress_bar = $UI_layer/ProgressBar
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$UI_layer/Lives.text = str(lives)
+	timer.wait_time = progress_bar.value
+	timer.connect("timeout", self, "game_over")
+	timer.start()
+	generate_new_monster()
+
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-func _on_MonsterCreator_texture_changed(texture: StreamTexture, key:String) -> void:
-	emit_signal(key + "_changed", texture)
-
-func _on_MonsterCreator_color_changed(color: Color, key:String) -> void:
-	emit_signal(key + "_changed", color); 
+func _process(delta):
+	progress_bar.value = timer.time_left
+	
 
 
-func _on_SwipeDetector_tinder_swiped(is_left):
-	if is_left:
-		$AnimationPlayer.play("left_swipe")
-	else:
-		$AnimationPlayer.play("right_swipe")
+func proccess_swipe() -> void:
+	if (currentColorKey != correctColorKey) :
+		lives -=1
+		$UI_layer/Lives.text = str(lives)
+		#print("score is ", score)
+	if (lives <= 0) :
+		game_over()
+		
+		
+	
+func game_over() -> void : 
+	timer.stop()
+	$Popup_layer/GameOverPopup.show()
 
+func generate_new_monster() -> void:
+	currentColorKey = COLORS.keys()[randi() % COLORS.keys().size()]
+	var color = COLORS[currentColorKey]
+	monster.change_head_color(color)
+	monster.change_torso_color(color)
+	monster.change_legs_color(color)
 
 func _on_LostButton_pressed():
-	$AnimationPlayer.play("left_swipe")
-
+	proccess_swipe()
+	generate_new_monster()
 
 func _on_FoundButton_pressed():
-	$AnimationPlayer.play("right_swipe")
+	proccess_swipe()
+	generate_new_monster()
