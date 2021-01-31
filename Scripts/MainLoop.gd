@@ -75,16 +75,24 @@ func _process(delta):
 func proccess_found_swipe() -> void:
 	if (currentColorKey != correctColorKey) :
 		lives -=1
+		$Loss.play()
 		process_lives()
 		#$UI_layer/Lives.text = str(lives)
 		#print("score is ", score)
+	else:
+		$Point.play()
+		
 	if (lives <= 0) :
 		game_over()
 		
 func process_lost_swipe() -> void: 
 	if (currentColorKey == correctColorKey) :
 		lives -= 1
+		$Loss.play()
 		process_lives()
+	else:
+		$Point.play()
+		
 		
 	if (lives <= 0) :
 		game_over()

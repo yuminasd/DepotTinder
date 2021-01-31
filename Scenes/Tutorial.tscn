@@ -18,6 +18,9 @@
 visible = false
 script = ExtResource( 8 )
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 112.006, 38.704 )
+
 [node name="UI_Layer" type="CanvasLayer" parent="."]
 
 [node name="Monster" parent="UI_Layer" instance=ExtResource( 9 )]
