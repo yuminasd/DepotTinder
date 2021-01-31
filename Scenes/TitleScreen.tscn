@@ -1,15 +1,16 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Scenes/learn.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/learn.gd" type="Script" id=1]
 [ext_resource path="res://Textures/Title/main.png" type="Texture" id=2]
 [ext_resource path="res://Textures/Title/hand1.png" type="Texture" id=3]
 [ext_resource path="res://Textures/Title/hand2.png" type="Texture" id=4]
 [ext_resource path="res://Textures/Title/learn.png" type="Texture" id=5]
-[ext_resource path="res://Scenes/play.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/play.gd" type="Script" id=6]
 [ext_resource path="res://Textures/Title/eye2.png" type="Texture" id=7]
 [ext_resource path="res://Textures/Title/eye1.png" type="Texture" id=8]
 [ext_resource path="res://Textures/Title/eye3.png" type="Texture" id=9]
 [ext_resource path="res://Textures/Title/play.png" type="Texture" id=10]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
