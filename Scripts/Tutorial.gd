@@ -1,6 +1,9 @@
 extends Node2D
 
 var current_step:int = 0;
+
+const done_button_texture = preload("res://Textures/Tutorial/done.png")
+const done_button_pressed_texture = preload("res://Textures/Tutorial/done2.png")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -37,7 +40,8 @@ func step5() -> void:
 
 func step6() -> void:
 	$UI_Layer/Step6.visible = true
-	$UI_Layer/NextButton.text = "Done" # TODO: Replace this with done texture
+	$UI_Layer/NextButton.texture_normal = done_button_texture
+	$UI_Layer/NextButton.texture_pressed = done_button_pressed_texture
 
 func step7() -> void: 
 	get_tree().change_scene("res://Scenes/TitleScreen.tscn")
