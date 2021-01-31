@@ -73,5 +73,12 @@ stretch_margin_right = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Score" type="Label" parent="."]
+margin_left = 199.0
+margin_top = 21.0
+margin_right = 316.0
+margin_bottom = 50.0
+align = 1
 [connection signal="pressed" from="LostButton" to="." method="_on_LostButton_pressed"]
 [connection signal="pressed" from="FoundButton" to="." method="_on_FoundButton_pressed"]
