@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Textures/UI/frame.png" type="Texture" id=1]
 [ext_resource path="res://Textures/UI/lost.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Textures/UI/foundPressed.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/SwipeDetector.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scripts/MainLoop.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/MonsterCreator.tscn" type="PackedScene" id=9]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -111,7 +112,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Monster" parent="UI" instance=ExtResource( 9 )]
+position = Vector2( 263.932, 556.822 )
+
 [node name="TimeLeft" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
 [connection signal="tinder_swiped" from="SwipeDetector" to="." method="_on_SwipeDetector_tinder_swiped"]
+[connection signal="pressed" from="UI/Found" to="." method="_on_FoundButton_pressed"]
+[connection signal="pressed" from="UI/Lost" to="." method="_on_LostButton_pressed"]

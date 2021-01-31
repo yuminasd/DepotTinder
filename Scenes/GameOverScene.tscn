@@ -18,7 +18,7 @@
 [ext_resource path="res://Textures/UI/emptyFrame.png" type="Texture" id=16]
 [ext_resource path="res://Textures/GameOver/GameOver.png" type="Texture" id=17]
 
-[sub_resource type="GDScript" id=3]
+[sub_resource type="GDScript" id=1]
 script/source = "extends Node
 
 
@@ -29,7 +29,7 @@ func _on_Again_pressed():
 	get_tree().change_scene(\"res://Scenes/TitleScreen.tscn\")
 "
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 8 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 11 ), ExtResource( 7 ) ],
 "loop": true,
@@ -37,8 +37,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=2]
-resource_name = "GameOver"
+[sub_resource type="Animation" id=3]
 length = 5.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:frame")
@@ -102,7 +101,7 @@ tracks/4/keys = {
 }
 
 [node name="GameOverScene" type="Node"]
-script = SubResource( 3 )
+script = SubResource( 1 )
 
 [node name="Frame" type="TextureRect" parent="."]
 margin_left = 45.0
@@ -124,7 +123,7 @@ offset = Vector2( 45, 10 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 visible = false
 position = Vector2( 360, 640 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 frame = 12
 
 [node name="Again" type="TextureButton" parent="."]
@@ -140,5 +139,5 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/GameOver = SubResource( 2 )
+anims/GameOver = SubResource( 3 )
 [connection signal="pressed" from="Again" to="." method="_on_Again_pressed"]
