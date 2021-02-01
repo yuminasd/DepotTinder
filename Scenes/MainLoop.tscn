@@ -132,5 +132,5 @@ position = Vector2( 263.932, 556.822 )
 wait_time = 60.0
 one_shot = true
 [connection signal="tinder_swiped" from="SwipeDetector" to="." method="_on_SwipeDetector_tinder_swiped"]
-[connection signal="pressed" from="UI/Found" to="." method="_on_FoundButton_pressed"]
-[connection signal="pressed" from="UI/Lost" to="." method="_on_LostButton_pressed"]
+[connection signal="button_up" from="UI/Found" to="." method="_on_Found_button_up"]
+[connection signal="button_up" from="UI/Lost" to="." method="_on_Lost_button_up"]

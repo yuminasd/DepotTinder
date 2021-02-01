@@ -154,8 +154,9 @@ func _on_SwipeDetector_tinder_swiped(is_left):
 	swipe(is_left)
 	
 
-func _on_LostButton_pressed():
+func _on_Found_button_up():
+	handle_found_event()
+
+func _on_Lost_button_up():
 	handle_lost_event()
 
-func _on_FoundButton_pressed():
-	handle_found_event()
